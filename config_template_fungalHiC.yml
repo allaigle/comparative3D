@@ -1,0 +1,26 @@
+workdir: "WORKDIR"
+
+organism: "FULLNAME"
+
+sra_ids:
+- ACCESSION
+
+hicpro_restriction_sites: "RESTRICTION_ENZYMES"
+
+hicpro_resolutions:
+- 10000
+- 20000
+- 30000
+- 40000
+- 50000
+- 100000
+
+pastis_resolutions:
+- 10000
+- 20000
+- 30000
+- 40000
+- 50000
+- 100000
+
+verify_contigs: Truei

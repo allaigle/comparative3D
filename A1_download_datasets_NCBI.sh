@@ -4,7 +4,7 @@
 #                                    Download genome from NCBI                         
 #                        using datasets (NCBI), bash and the SLURM scheduler                                                                             
 #
-# [USAGE] bash 01_download_datasets_NCBI.sh
+# [USAGE] bash A1_download_datasets_NCBI.sh
 #
 # [Input] GenBank assembly
 # [Output] FASTA

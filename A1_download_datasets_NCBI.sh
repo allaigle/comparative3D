@@ -10,7 +10,7 @@
 # [Output] FASTA
 #
 # [Adaptation & History]
-# Sept,Nov 2024 Alice Laigle (alice.laigle@unine.ch)
+# Sept,Nov 2024 Alice Laigle (alice.laigle@gmail.com)
 # April 2025 AL - made it as array
 #
 ###################################################################################################################
@@ -39,7 +39,7 @@ ASSEMBLY=$(cat $INFILE | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $3}')
 mkdir -p ${basePATH}/0_data/1_genomes/slurm
 cd ${basePATH}/0_data/1_genomes/slurm
 
-sbatch -J dg_${SPECIES} --wrap="mkdir -p ../${PHYLUM}/${SPECIES} ;\
+sbatch -J A1_${SPECIES} -c 1 --mem=8MB --wrap="mkdir -p ../${PHYLUM}/${SPECIES} ;\
      $datasets download genome accession $ASSEMBLY --include genome,seq-report \
      --filename ../${PHYLUM}/${SPECIES}/${SPECIES}_${ASSEMBLY}_dataset.zip ;\
      cd ../${PHYLUM}/${SPECIES} ;\

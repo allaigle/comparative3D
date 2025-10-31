@@ -4,10 +4,10 @@
 #                          Prepare folders, files and config for 3DGB                        
 #                        using SRA Toolkit, bash and the SLURM scheduler                                                                             
 #
-# [USAGE] bash B1_prepare_3DGB.sh PHYLUM SPECIES FULL_SPECIES_NAME ASSEMBLY SRA RE
+# [USAGE] sbatch -J B1 -c 1 --mem=2MB B1_prepare_3DGB.sh PHYLUM SPECIES FULL_SPECIES_NAME ASSEMBLY SRA RE
 #
 # [Adaptation & History]
-# Sept-Oct 2024 - Alice Laigle (alice.laigle@unine.ch)
+# Sept-Oct 2024 - Alice Laigle (alice.laigle@gmail.com)
 # Nov 2024 - AL - adapted to genomes without <500kb & created dependencies
 # May 2025 - AL - Adapt to the new cluster system
 #

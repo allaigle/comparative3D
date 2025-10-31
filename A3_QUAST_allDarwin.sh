@@ -4,20 +4,20 @@
 #                              Check genome quality                  
 #                   using QUAST, bash and the SLURM scheduler                                                                             
 #
-# [USAGE] sbatch A3_QUAST_allDarwin.sh
+# [USAGE] sbatch -J A3 -c 1 --mem=16MB A3_QUAST_allDarwin.sh
 #
 # [Input] FASTA
 # [Output] reports
 #
 # [Adaptation & History]
-# Nov 2024 Alice Laigle (alice.laigle@unine.ch)
+# Nov 2024 Alice Laigle (alice.laigle@gmail.com)
 # Apr 2025 AL - made for all at once, not through species loop
 # 
 # NOTE: QUAST is already installed in its homonym conda env.  
 ###################################################################################################################
 #
 #SBATCH -c 1 # processor' number
-#SBATCH --mem 2MB # memory
+#SBATCH --mem 16MB # memory
 
 # Variables - TO BE CHANGED
 basePATH="/data/alicel/chapter2"

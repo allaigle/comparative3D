@@ -4,10 +4,10 @@
 #                             Clean successful 3DGB workdir                         
 #                            using bash and the SLURM scheduler                                                                             
 #
-# [USAGE] sbatch B3_clean_3DGB_workdir.sh PHYLUM SPECIES SRA
+# [USAGE] sbatch -c1 --mem=2MB B3_clean_3DGB_workdir.sh PHYLUM SPECIES SRA
 #
 # [Adaptation & History]
-# Oct 2024 Alice Laigle (alice.laigle@unine.ch)
+# Oct 2024 Alice Laigle (alice.laigle@gmail.com)
 ###################################################################################################################
 #
 #SBATCH -c 1 # processor' number

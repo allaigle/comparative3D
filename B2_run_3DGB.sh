@@ -10,7 +10,7 @@
 # [Output] check 3DGB github page
 #
 # [Adaptation & History]
-# Sept-Oct 2024 Alice Laigle (alice.laigle@unine.ch)
+# Sept-Oct 2024 Alice Laigle (alice.laigle@gmail.com)
 # 
 # NOTE: Includes 'B3_clean_3DGB_workdir.sh' script in the second SBATCH command.
 ###################################################################################################################
@@ -34,13 +34,13 @@ conda activate 3DGB
 #### Run 3DGB
 cd ${workdir}
 
-sbatch -J 3DGB_${SPECIES} -c 4 --mem 16GB \
+sbatch -J 3DGB_${SPECIES} -c 4 --mem=16GB \
   --wrap="snakemake --profile smk_profile_debug -j 4 \
     --configfile ${workdir}/configYML/${PHYLUM}/${SPECIES}_config.yml"
 
 # Cleam 3DGB SPECIES folder
 cd ${basePATH}/3_scripts 
-sbatch -J clean_3DGB_${SPECIES} -c 1 --mem 2MB \
+sbatch -J clean_3DGB_${SPECIES} -c 1 --mem=2MB \
   --dependency=$(squeue --noheader --format %i --name 3DGB_${SPECIES}) \
   --wrap="bash ${basePATH}/3_scripts/B3_clean_3DGB_workdir.sh \
     ${PHYLUM} ${SPECIES} ${SRA}"

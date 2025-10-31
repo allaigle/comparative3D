@@ -6,10 +6,10 @@
 #
 # [GAOL] Create genome indices and remove all chromosomes, SUPER contigs or scaffolds under 500kb.
 #
-# [USAGE] sbatch A2_check_genome_quality_trim_wo500.sh
+# [USAGE] sbatch -J A2 -c 1 --mem=16MB A2_check_genome_quality_trim_wo500.sh
 #
 # [Adaptation & History]
-# Nov 2024 Alice Laigle (alice.laigle@unine.ch)
+# Nov 2024 Alice Laigle (alice.laigle@gmail.com)
 # Apr 2025 AL - Remove arguments and add INFILE for while loop
 # 
 # NOTES:
@@ -18,7 +18,7 @@
 ###################################################################################################################
 #
 #SBATCH -c 1 # processor' number
-#SBATCH --mem 2MB # memory
+#SBATCH --mem 16MB # memory
 
 # Variables - TO BE CHANGED
 basePATH="/data/alicel/chapter2"

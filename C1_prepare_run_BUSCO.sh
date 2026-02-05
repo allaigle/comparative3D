@@ -5,6 +5,8 @@
 # Adaptation Alice Laigle from Toby Baril's script.
 # [USAGE] sbatch -J C1 -c 1 --mem=2MB C1_prepare_run_BUSCO.sh 
 
+# NOTE: contains `C2_run_busco_TBaril.sh` script.
+
 # Copy entire FASTA genomes (darwin subset + 3 zoopagomycota; not filtered wo500)
 
 basePATH="/data/alicel/chapter2"

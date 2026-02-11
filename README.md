@@ -1,3 +1,4 @@
+# ONGOING
 This repository contains all the scripts used in the study "Comparative 3D genome architecture analyses reveal rapid turnover and the emergence of transitory stages in the fungal kingdom". It uses the SLURM scheduler and contains scripts needing variable changes.
 
 # Structure of the project 

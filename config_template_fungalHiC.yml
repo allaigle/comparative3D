@@ -23,4 +23,4 @@ pastis_resolutions:
 - 50000
 - 100000
 
-verify_contigs: Truei
+verify_contigs: True

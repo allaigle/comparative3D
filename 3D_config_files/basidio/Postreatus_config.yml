@@ -1,0 +1,26 @@
+workdir: "Postreatus"
+
+organism: "Pleurotus ostreatus"
+
+sra_ids:
+- ERR9580486
+
+hicpro_restriction_sites: "^GATC G^ANTC C^TNAG T^TAA"
+
+hicpro_resolutions:
+- 10000
+- 20000
+- 30000
+- 40000
+- 50000
+- 100000
+
+pastis_resolutions:
+- 10000
+- 20000
+- 30000
+- 40000
+- 50000
+- 100000
+
+verify_contigs: True

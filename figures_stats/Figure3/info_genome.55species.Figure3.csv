@@ -1,0 +1,56 @@
+Species,Phylum,GenomeSize_bp_wo500,TE_cov_perc,Cis_Interactions_perc,Trans_Interactions_perc,Model
+Abisporus,Basidiomycota,30321411,18.357,58.4,41.6,Rabl-Bean
+Agentilis,Basidiomycota,40958937,44.875,40.9,59.1,Bean shape
+Aostoyae,Basidiomycota,54749967,19.004,45.7,54.3,Rabl
+Aperuvianus,Ascomycota,34537690,7.243,49.3,50.7,Rabl-Bean
+Arubescens,Basidiomycota,34045353,28.526,87.6,12.4,Bean shape
+Bsubappendiculatus,Basidiomycota,31639639,31.114,84.6,15.4,Bean shape
+Cbrunneum,Basidiomycota,38856969,33.125,41.7,58.3,Chromosome Territories-Rabl
+Cfumosa,Basidiomycota,48281665,55.241,59.3,40.7,Rabl
+Cfumosorosea,Ascomycota,34324099,7.314,26.9,73.1,Rabl
+Cmicaceus,Basidiomycota,50217556,12.852,77.8,22.2,Rabl-Bean
+Cnorvegica,Ascomycota,32251759,9.027,42.2,57.8,Chromosome Territories-Rabl
+Eclypeatum,Basidiomycota,59700562,55.424,58.9,41.1,Chromosome Territories-Rabl
+Elanata,Ascomycota,31520625,41.537,85.8,14.2,Chromosome Territories-Rabl
+Eparvispora,Mucoromycota,38486553,11.083,38,62,Rabl
+Fmarina,Ascomycota,35575737,26.408,42,58,Rabl-Bean
+Fvelutipes,Basidiomycota,37254497,18.215,40,60,Rabl-Bean
+Girrigatus,Basidiomycota,27735519,34.973,55.6,44.4,Chromosome Territories-Rabl
+Gresinaceum,Basidiomycota,41015703,13.116,34.3,65.7,Rabl-Bean
+Hcoccinea,Basidiomycota,65126115,56.098,64.1,35.9,Rabl-Bean
+Hcoralloides,Basidiomycota,39939687,25.784,89.3,10.7,Bean shape
+Hpunicea,Basidiomycota,91261153,64.477,45.3,54.7,Chromosome Territories-Rabl
+Igrammopodia,Basidiomycota,47529353,43.531,50.3,49.7,Rabl-Bean
+Itigrina,Basidiomycota,41304737,27.928,56.3,43.7,Rabl
+Lblennius,Basidiomycota,68853849,62.661,70.9,29.1,Rabl-Bean
+Levosmus,Basidiomycota,57199435,59.666,62.3,37.7,Bean shape
+Lflavum,Ascomycota,23957028,8.511,39.2,60.8,Rabl-Bean
+Llubrica,Ascomycota,86064447,62.952,70.1,29.9,Bean-Chromosome Territories
+Lpygmaea,Ascomycota,32421062,35.011,73.1,26.9,Chromosome Territories-Rabl
+Lsordida,Basidiomycota,53223650,26.893,82.3,17.7,Rabl
+Lsulphureus,Basidiomycota,37410216,18.653,43.2,56.8,Rabl-Bean
+Ltabidus,Basidiomycota,52304285,49.485,56.9,43.1,Rabl
+Mgalericulata,Basidiomycota,99772317,34.453,92.7,7.3,Chromosome Territories-Rabl
+Mzobellii,Ascomycota,13602261,2.418,44.6,55.4,Rabl
+Palboapiculata,Basidiomycota,49413841,29.68,52.3,47.7,Rabl-Bean
+Pcalyptriformis,Basidiomycota,33129630,46.159,53.3,46.7,Chromosome Territories-Rabl
+Pglauca,Ascomycota,33190042,5.554,70.1,29.9,Rabl
+Postreatus,Basidiomycota,40426685,25.813,42.1,57.9,Rabl-Bean
+Pstipticus,Basidiomycota,38444143,22.073,82.4,17.6,Rabl-Bean
+Ptriumphans,Basidiomycota,164984872,78.759,89.4,10.6,Chromosome Territories-Rabl
+Rcorniculata,Basidiomycota,46908291,28.883,66.2,33.8,Rabl-Bean
+Rdelica,Basidiomycota,46292235,48.04,84.2,15.8,Bean shape
+Rfaginea,Basidiomycota,41612693,45.14,33.1,66.9,Rabl-Bean
+Rfarinipes,Basidiomycota,38985979,48.448,54.7,45.3,Bean shape
+Rirregularis,Mucoromycota,146773001,46.244,62.6,37.4,Chromosome Territories-Rabl
+Rkalkhoffii,Ascomycota,24808958,3.887,79.3,20.7,Chromosome Territories
+Rnigricans,Basidiomycota,45011098,51.648,62.1,37.9,Bean shape
+Rolivacea,Basidiomycota,38334703,40.299,42.6,57.4,Bean shape
+Rvesca,Basidiomycota,55098841,52.368,79.5,20.5,Rabl-Bean
+Slamellicola,Ascomycota,28706920,1.444,55,45,Rabl
+Sminoensis,Basidiomycota,36819025,26.049,86.3,13.7,Bean shape
+Tcingulatum,Basidiomycota,45057690,45.499,57.9,42.1,Rabl-Bean
+Themisulphureum,Basidiomycota,128125011,74.072,44.6,55.4,Chromosome Territories-Rabl
+Tpullulans,Basidiomycota,23340260,8.613,85.4,14.6,Chromosome Territories-Rabl
+Udeusta,Ascomycota,38863283,33.961,57.7,42.3,Chromosome Territories-Rabl
+Vsurrecta,Basidiomycota,27853270,8.368,65.1,34.9,Chromosome Territories-Rabl

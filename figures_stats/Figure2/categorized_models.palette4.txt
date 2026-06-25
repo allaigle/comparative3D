@@ -1,0 +1,56 @@
+Phylum	Species	Full_Species_Name	CT	Rabl	Bean	Model	ColorCode
+Basidimycota	Abisporus	Agaricus bisporus	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Agentilis	Aureoboletus gentilis	0	0	1	Bean	#08085E
+Basidimycota	Aostoyae	Armillaria ostoyae	0	1	0	Rabl	#99CCCC
+Ascomycota	Aperuvianus	Arachnomyces peruvianus	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Arubescens	Amanita rubescens	0	0	1	Bean	#08085E
+Basidimycota	Bsubappendiculatus	Butyriboletus subappendiculatus	0	0	1	Bean	#08085E
+Basidimycota	Cbrunneum	Chlorophyllum brunneum	1	1	0	Chromosome Territories-Rabl	#9292b0
+Basidimycota	Cfumosa	Clavaria fumosa	0	1	0	Rabl	#99CCCC
+Ascomycota	Cfumosorosea	Cordyceps fumosorosea	0	1	0	Rabl	#99CCCC
+Basidimycota	Cmicaceus	Coprinellus micaceus	0	1	1	Rabl-Bean	#115B75
+Ascomycota	Cnorvegica	Cladonia norvegica	1	1	0	Chromosome Territories-Rabl	#9292b0
+Basidimycota	Eclypeatum	Entoloma clypeatum	1	1	0	Chromosome Territories-Rabl	#9292b0
+Ascomycota	Elanata	Ephebe lanata	1	1	0	Chromosome Territories-Rabl	#9292b0
+Mucoromycota	Eparvispora	Entomortierella parvispora	0	1	0	Rabl	#99CCCC
+Ascomycota	Fmarina	Flavoplaca marina	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Fvelutipes	Flammulina velutipes	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Girrigatus	Gliophorus irrigatus	1	1	0	Chromosome Territories-Rabl	#9292b0
+Basidimycota	Gresinaceum	Ganoderma resinaceum	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Hcoccinea	Hygrocybe coccinea	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Hcoralloides	Hericium coralloides	0	0	1	Bean	#08085E
+Basidimycota	Hpunicea	Hygrocybe punicea	1	1	0	Chromosome Territories-Rabl	#9292b0
+Basidimycota	Igrammopodia	Inocybe grammopodia	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Itigrina	Inocybe tigrina	0	1	0	Rabl	#99CCCC
+Basidimycota	Lblennius	Lactarius blennius	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Levosmus	Lactarius evosmus	0	0	1	Bean	#08085E
+Ascomycota	Lflavum	Leptographium flavum	0	1	1	Rabl-Bean	#115B75
+Ascomycota	Llubrica	Leotia lubrica	1	0	1	Bean-Chromosome Territories	#560A7F
+Ascomycota	Lpygmaea	Lichina pygmaea	1	1	0	Chromosome Territories-Rabl	#9292b0
+Basidimycota	Lsordida	Lepista sordida	0	1	0	Rabl	#99CCCC
+Basidimycota	Lsulphureus	Laetiporus sulphureus	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Ltabidus	Lactarius tabidus	0	1	0	Rabl	#99CCCC
+Basidimycota	Mgalericulata	Mycena galericulata	1	1	0	Chromosome Territories-Rabl	#9292b0
+Ascomycota	Mzobellii	Metschnikowia zobellii	0	1	0	Rabl	#99CCCC
+Basidimycota	Palboapiculata	Phaeoclavulina alboapiculata	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Pcalyptriformis	Porpolomopsis calyptriformis	1	1	0	Chromosome Territories-Rabl	#9292b0
+Ascomycota	Pglauca	Platismatia glauca	0	1	0	Rabl	#99CCCC
+Basidimycota	Postreatus	Pleurotus ostreatus	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Pstipticus	Panellus stipticus	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Ptriumphans	Phlegmacium triumphans	1	1	0	Chromosome Territories-Rabl	#9292b0
+Basidimycota	Rcorniculata	Ramariopsis corniculata	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Rdelica	Russula delica	0	0	1	Bean	#08085E
+Basidimycota	Rfaginea	Russula faginea	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Rfarinipes	Russula aff farinipes	0	0	1	Bean	#08085E
+Mucoromycota	Rirregularis	Rhizophagus irregularis	1	1	0	Chromosome Territories-Rabl	#9292b0
+Ascomycota	Rkalkhoffii	Rhizosphaera kalkhoffii	1	0	0	Chromosome Territories	#990099
+Basidimycota	Rnigricans	Russula nigricans	0	0	1	Bean	#08085E
+Basidimycota	Rolivacea	Russula olivacea	0	0	1	Bean	#08085E
+Basidimycota	Rvesca	Russula vesca	0	1	1	Rabl-Bean	#115B75
+Ascomycota	Slamellicola	Simplicillium lamellicola	0	1	0	Rabl	#99CCCC
+Basidimycota	Sminoensis	Sparassis minoensis	0	0	1	Bean	#08085E
+Basidimycota	Tcingulatum	Tricholoma cingulatum	0	1	1	Rabl-Bean	#115B75
+Basidimycota	Themisulphureum	Tricholoma hemisulphureum	1	1	0	Chromosome Territories-Rabl	#9292b0
+Basidimycota	Tpullulans	Tausonia pullulans	1	1	0	Chromosome Territories-Rabl	#9292b0
+Ascomycota	Udeusta	Umbilicaria deusta	1	1	0	Chromosome Territories-Rabl	#9292b0
+Basidimycota	Vsurrecta	Volvariella surrecta	1	1	0	Chromosome Territories-Rabl	#9292b0

@@ -543,7 +543,7 @@ Rscript Figure3_associations.R
 
 ## Supplemental figures
 
-### Supplemental Figure 1
+### Supplemental Figure 1
 
 3D models and contact maps for the 55 species. 3D models (left) are visualized using Mol*. 
 
@@ -558,7 +558,7 @@ Comparison of genetic features between Ascomycota and Basidiomycota phyla.
 Rscript SuppFigure2_violin_comparison_phyla.R
 ```
 
-### Supplemental figure 3
+### Supplemental Figure 3
 
 Distributions of gene and transposable elements content along the genome.
 
@@ -574,7 +574,7 @@ Note: `info_perGenome.55.csv` is also given as the Supplemental Table 3.
 Rscript SuppFigure3_ridgeline_coverage.R
 ```
 
-### Supplemental figure 4
+### Supplemental Figure 4
 
 Phylogenetic regressions between genetic features across the 55 species.
 
@@ -590,7 +590,7 @@ Phylogenetic regressions between genetic features across the 55 species.
 Rscript SuppFigure4_phyloreg.R
 ```
 
-### Supplemental figure 5
+### Supplemental Figure 5
 
 Phylogenetic ANOVAs between genetic features and 3D genome architecture across the 55 species.
 
@@ -606,6 +606,6 @@ Phylogenetic ANOVAs between genetic features and 3D genome architecture across t
 Rscript SuppFigure5_phylANOVA.R
 ```
 
-### Supplemental figure 6
+### Supplemental Figure 6
 
 Supplemental Figure 6 is already done - during Hi-C treatments (see *E - Hi-C conversions, correction, normalization and cross with annotations -- Conversion and diagnostics*). Made based on part of the `E1_hicpro2h5_diagnosticPlot_HiCExplorer.sh` script, plots being concatenated in Adobe Illustrator.

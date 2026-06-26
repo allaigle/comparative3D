@@ -1,5 +1,11 @@
 This repository contains all the scripts used in the study "Comparative analyses reveal rapid turnover and emergence of transitory 3D genome architectures in the fungal kingdom" (Laigle *et al.,* 2026) and their usage. It uses the SLURM scheduler and contains scripts needing variable changes if reused. Scripts have been named depending on the major steps, *e.g.,* "A" for collection of genomes or "B" for collection of Hi-C data, except for figures having their litteral names (*e.g.,* "Figure") and being placed in a specific folder here with their inputs when not too heavy (otherwise, access them in Zenodo). It is also precised when steps have been made in local (*e.g.,* figures). 
 
+
+<img align="right" width="200px" 
+    src="heatmap_models.gif"
+    alt="Gif of 6 fungal species presenting different Hi-C contact maps along their 3D models.">
+
+
 Zenodos linked to this work: 
 1. [Dataset - 3D videos & trees](https://doi.org/10.5281/zenodo.17672270)
 2. [Dataset - contact maps](https://doi.org/10.5281/zenodo.18982314)
@@ -11,7 +17,7 @@ Zenodos linked to this work:
 For clarification, gave the most important structural folders.
 
 ```{bash}
-$basePATH 
+basePATH 
 ├── 0_data
 │   ├── 0_collection
 │   ├── 1_genomes
@@ -25,7 +31,7 @@ $basePATH
 │   ├── 6_stats_HiC_Pro
 ├── 2_analysis
 │   ├── 1_annotations
-│   ├── 2_cross_hic_anno
+│   ├── 2_plots
 ├── 3_scripts
 └── 4_tools
 ```
@@ -212,15 +218,24 @@ sbatch -J C8 -c 1 --mem=32MB C8_create_supermatrix_TBaril.sh
 
 **Requires:** IQ-Tree2 ([Minh *et al.,* 2020](https://academic.oup.com/mbe/article/37/5/1530/5721363?login=false)).
 
-Input: `fungi_supermatrix.fa.clipkit`.
-
-```{bash}
-sbatch -J C9 -c 1 --mem=2MB C9_run_iqtree2_TBaril.sh
-```
 
 Notes:
 - contains a sbatch command for running IQ-Tree2 with much more ressources, 
 - takes the three Zoopagomycota species as outgroups.
+
+
+Input: `fungi_supermatrix.fa.clipkit`.
+
+```{bash}
+sbatch -J C9 -c 1 --mem=2MB C9_run_iqtree2_TBaril.sh
+
+# Inside command:
+#sbatch -c 16 -p normal.1000h --mem=64G \
+#  --wrap="iqtree2 -s fungi_supermatrix.fa.clipkit -bb 1000 -T 16 \
+#  -o Cmojavensis,Cobscurus,Lpennispora --verbose"
+```
+
+Output: 
 
 
 # D - Gene and TE annotations
@@ -371,3 +386,151 @@ earlGreyAnnotationOnly -g $genome -s $arg_species \
   -l $single_library -t 4 -m yes -e yes
 ```
 
+
+## Clean annotations and create summaries
+
+**Goal:**
+1) convert to BED, 
+2) filter gene annotation if overlaps with TE annotation, 
+3) create windows for each annotations, and 
+4) create a summary for future plots.
+
+
+**Requires:** `sed`, `awk` and `grep` commands, BEDOPS (2.4.41; [Neph *et al.,* 2012](https://academic.oup.com/bioinformatics/article/28/14/1919/218826)) and BEDTools (v2.31.1; [Quinlan and Hall, 2010](https://academic.oup.com/bioinformatics/article/26/6/841/244688?login=false)) tools.
+
+**Inputs:** `.fai`, `_braker.gff3` & `.filteredRepeats.gff` files.
+**Main outputs:** `.gene_cov.bed` and `.TE_cov.bed` files.
+
+```{bash}
+sbatch -J D11 -c 1 --mem=8GB D11_clean_annotations.sh
+```
+
+**Inputs:** `.fasta`, `.fai`, `_chromSize.txt`,`_braker.gff3`, `${TYPE}.sorted.bed` (gene or TE), `.filtered_genes.bed` and `.filteredRepeats.gff` files.
+**Main outputs:** `allSpecies.summary.gene_filtered.txt`, `allDarwin.summary.percent_Anno.txt`,`allDarwin.merged_${TYPES}_cov.tsv` and `allDarwin.summary_TE_classes.txt` files.
+
+```{bash}
+# [Inputs] _braker.gff3 & .filteredRepeats.gff
+# [Outputs] 
+sbatch -J D12 -c 1 --mem=8MB D12_create_annotations_summaries.sh
+```
+
+
+# E - Hi-C conversions, correction, normalization and cross with annotations [[TO FINISH]]
+
+## Conversion and diagnostics 
+
+Conversion of 10 and 50 kb raw matrices from HiC-Pro output (inside 3DGB pipeline) to h5 file format using HiCExplorer ([Ramírez *et al.,* 2018](https://www.nature.com/articles/s41467-017-02525-w); [Wolff *et al.,* 2020](https://doi.org/10.1093/nar/gkaa220)) and run a diagnostic plot. 
+
+Notes: 
+1) the script for the diagnostic plot has been modified for a visual purpose only (bars and threshold colours), 
+2) thresholds for 50 kb matrices can be found in the Supplemental Table 8 - 50 kb being the only resolution used at the end
+3) diagnostic plots can be found in the Supplemental Figure 6. 
+
+```{bash}
+# [Input] allDarwin_phylum_species_assembly_SRA.filtered_55.txt (TXT file requiring 3 cols: phylum, species, SRA), _${RES}.matrix and _${RES}_abs.bed
+# [Output] _${RES}.raw.h5 & _${RES}.diag_raw.pdf
+sbatch -J E1 -c 1 --mem=16GB E1_hicpro2h5_diagnosticPlot_HiCExplorer.sh
+```
+
+Diagnostic plots of raw data are available (Supplemental Figure 6) and from those plots, thresholds have been used to correct matrices using 50 kb resolution (Supplemental Table 8) and stored as `allDarwin_species_50kbDiagThreshold.filtered_55.txt` TXT file (2 cols, tab-separated: species xMinThreshold).
+
+
+## Correction and normalization
+
+`E2_correct_ICE_HiCExplorer.sh` is used to correct and normalize whole matrices, where normalization is done with (ICE). 
+
+```{bash}
+# [Input] TXT files with thresholds & .raw.h5
+# [Output] .corrected_ICE.h5
+sbatch -J E2 -c 1 --mem=16GB E2_correct_ICE_HiCExplorer.sh
+```
+
+Full contact maps (.h5) are accessible on Zenodo: [Dataset - contact maps](https://doi.org/10.5281/zenodo.18982314). 
+
+## Contact map visualization
+
+Plots of corrected_ICE contact maps (Supplemental Figure 1 - right panel for each species) Note: when not using `--log1p` option, it gave nothing in the map or very few interactions.
+
+```{bash}
+# [Input] allDarwin_phylum_species_assembly_SRA.filtered_55.txt and .corrected_ICE.h5
+# [Output] .png for corrected_ICE at different resolutions and vMax
+sbatch -J plot_maps -c 1 --mem=16GB SuppFigure1_plot_contact_maps_HiCExplorer.sh
+
+# inside command: 
+hicPlotMatrix \
+  --matrix ${workdir}/2_corrected_ICE/${SPECIES}_${RES}.corrected_ICE.h5 \
+  --outFileName ${workdir}/4_contact_maps/${RES}/${SPECIES}_${RES}.corrected_ICE.log1p_vMax${VMAX}.png \
+  --log1p \
+  --vMax $VMAX \
+  --rotationX 90 \
+  --dpi 300
+``` 
+
+## Hi-C x annotations
+
+Goal: convert matrices to ginteractions (TSV files), and create summaries of the interactions as percentages: total interactions, cis-, cis- short (closest window, as fungal genomes are relatively small), cis- long and trans interactions.
+
+```{bash}
+# [Inputs] *_${RES}.${TYPE}.h5 and allDarwin_phylum_species_assembly_SRA.filtered_55.txt (for looping through SPECIES column)
+# [Outputs] *_${RES}.${TYPE}.tsv
+sbatch -J E3 -c 1 --mem=16GB E3_convert_h5_to_ginteractions_summarize_HiCExplorer.sh
+```
+
+# Figures and statistics [[TO FINISH]]
+## Main figures
+
+All figures have been done on local using RStudio. 
+
+### Figure 1
+
+Notes: 
+- `Ultrametric_fungi_ordered` is available at [Dataset - 3D videos & trees](https://doi.org/10.5281/zenodo.17672270)
+- `categorized_models.palette4.txt` is also given as Supplemental Table 5.
+
+
+```{bash}
+# Tree 
+## Inputs: Ultrametric_fungi_ordered and variables_names_colors_Fig1-3.R
+Rscript Figure1A_tree.R
+
+# Dot plot
+## Inputs: categorized_models.palette4.txt, phylo_speciesOrder_55.txt and variables_names_colors_Fig1-3.R
+Rscript Figure1A_dotplot_models.R
+```
+
+Figure 1B has been made in Adobe Illustrator and uing 3D models from supplemental figure 2. 
+
+```{bash}
+# Upset plot
+## Inputs: 
+Rscript Figure1C_upset_plot_3Dmodels.R
+```
+
+### Figure 2
+
+**Inputs:** `phylo_speciesOrder_55.txt`, `categorized_models.palette4.txt`, `info_perGenome.55.csv`, `allDarwin.summary_TE_classes.txt` and `allDarwin.summary_interactions.50000.corrected_ICE.txt`.
+
+Note: `info_perGenome.55.csv` is also given as the Supplemental Table 3.
+
+```{bash}
+Rscript Figure2_genetic.R
+```
+
+Run a dummy heatmap script to get the gradient legend of the 3D models, where colours are based on Mol* Viewer.
+
+```{bash}
+# Ran in local
+Rscript dummy_heatmap_for_Figure2_gradient.R
+```
+
+### Figure 3
+
+Statistics are included in the script.
+
+**Inputs**: `Ultrametric_fungi_ordered`, `info_genome.55species.Figure3.csv`,  
+
+Note: `Ultrametric_fungi_ordered` is available at [Dataset - 3D videos & trees](https://doi.org/10.5281/zenodo.17672270)
+
+```{bash}
+Rscript Figure3_associations.R
+```

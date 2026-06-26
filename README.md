@@ -482,12 +482,12 @@ Goal: convert matrices to ginteractions (TSV files), and create summaries of the
 sbatch -J E3 -c 1 --mem=16GB E3_convert_h5_to_ginteractions_summarize_HiCExplorer.sh
 ```
 
-# Figures and statistics [[TO FINISH]]
+# Figures and statistics
 ## Main figures
 
-All figures have been done on local using RStudio. 
+All figures have been done on local using RStudio and statistics are included in each figure's script. 
 
-### Figure 1
+### Figure 1 - Diversity in 3D genome architectures among fungi
 
 Notes: 
 - `Ultrametric_fungi_ordered` is available at [Dataset - 3D videos & trees](https://doi.org/10.5281/zenodo.17672270)
@@ -504,7 +504,7 @@ Rscript Figure1A_tree.R
 Rscript Figure1A_dotplot_models.R
 ```
 
-Figure 1B has been made in Adobe Illustrator and uing 3D models from supplemental figure 2. 
+Figure 1B has been made in Adobe Illustrator and uing 3D models from 3DGB pipeline visualized in Mol* (as for Supplemental Figure 1). 
 
 ```{bash}
 # Upset plot
@@ -512,7 +512,7 @@ Figure 1B has been made in Adobe Illustrator and uing 3D models from supplementa
 Rscript Figure1C_upset_plot_3Dmodels.R
 ```
 
-### Figure 2
+### Figure 2 - Genomic feature correlates with 3D genome architectures
 
 **Inputs:** `phylo_speciesOrder_55.txt`, `categorized_models.palette4.txt`, `info_perGenome.55.csv`, `allDarwin.summary_TE_classes.txt` and `allDarwin.summary_interactions.50000.corrected_ICE.txt`.
 
@@ -529,7 +529,7 @@ Run a dummy heatmap script to get the gradient legend of the 3D models, where co
 Rscript dummy_heatmap_for_Figure2_gradient.R
 ```
 
-### Figure 3
+### Figure 3 - Associations between genetic features and 3D genome architecture
 
 Statistics are included in the script.
 
@@ -540,3 +540,72 @@ Note: `Ultrametric_fungi_ordered` is available at [Dataset - 3D videos & trees](
 ```{bash}
 Rscript Figure3_associations.R
 ```
+
+## Supplemental figures
+
+### Supplemental Figure 1
+
+3D models and contact maps for the 55 species. 3D models (left) are visualized using Mol*. 
+
+Supplemental Figure 1 is already done - during Hi-C treatments (see *E - Hi-C conversions, correction, normalization and cross with annotations -- Contact map visualization*). 
+
+### Supplemental Figure 2
+
+Comparison of genetic features between Ascomycota and Basidiomycota phyla.
+
+```{bash}
+# Input: info_genome_TE_SuppFigures2_4.txt
+Rscript SuppFigure2_violin_comparison_phyla.R
+```
+
+### Supplemental figure 3
+
+Distributions of gene and transposable elements content along the genome.
+
+Note: the schematic representation of the phylogenetic tree was made with Adobe Illustrator.
+Note: `info_perGenome.55.csv` is also given as the Supplemental Table 3.
+
+```{bash}
+# Inputs:
+# - phylo_speciesOrder_55.txt
+# - allDarwin.merged_gene_cov.tsv
+# - allDarwin.merged_TE_cov.tsv
+# sourcing: variables_names_colors_Fig1-3.R #even though supp fig, should have renamed it.
+Rscript SuppFigure3_ridgeline_coverage.R
+```
+
+### Supplemental figure 4
+
+Phylogenetic regressions between genetic features across the 55 species.
+
+
+`Ultrametric_fungi_ordered` is available at [Dataset - 3D videos & trees](https://doi.org/10.5281/zenodo.17672270)
+
+```{bash}
+# Inputs:
+# - Ultrametric_fungi_ordered
+# - allDarwin.merged_gene_cov.tsv
+# - allDarwin.merged_TE_cov.tsv
+# sourcing: variables_names_colors_Fig1-3.R #even though supp fig, should have renamed it.
+Rscript SuppFigure4_phyloreg.R
+```
+
+### Supplemental figure 5
+
+Phylogenetic ANOVAs between genetic features and 3D genome architecture across the 55 species.
+
+
+`Ultrametric_fungi_ordered` is available at [Dataset - 3D videos & trees](https://doi.org/10.5281/zenodo.17672270)
+
+```{bash}
+# Inputs:
+# - Ultrametric_fungi_ordered
+# - allDarwin.merged_gene_cov.tsv
+# - allDarwin.merged_TE_cov.tsv
+# sourcing: variables_names_colors_Fig1-3.R #even though supp fig, should have renamed it.
+Rscript SuppFigure5_phylANOVA.R
+```
+
+### Supplemental figure 6
+
+Supplemental Figure 6 is already done - during Hi-C treatments (see *E - Hi-C conversions, correction, normalization and cross with annotations -- Conversion and diagnostics*). Made based on part of the `E1_hicpro2h5_diagnosticPlot_HiCExplorer.sh` script, plots being concatenated in Adobe Illustrator.

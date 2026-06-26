@@ -1,14 +1,5 @@
 This repository contains all the scripts used in the study "Comparative analyses reveal rapid turnover and emergence of transitory 3D genome architectures in the fungal kingdom" (Laigle *et al.,* 2026) and their usage. It uses the SLURM scheduler and contains scripts needing variable changes if reused. Scripts have been named depending on the major steps, *e.g.,* "A" for collection of genomes or "B" for collection of Hi-C data, except for figures having their litteral names (*e.g.,* "Figure") and being placed in a specific folder here with their inputs when not too heavy (otherwise, access them in Zenodo). It is also precised when steps have been made in local (*e.g.,* figures). 
 
-execute:
-  eval: false
-format: 
-  pdf:
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    colorlinks: true
----
 
 <img width="800px" 
     src="heatmap_models.gif"

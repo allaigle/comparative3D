@@ -1,11 +1,21 @@
 This repository contains all the scripts used in the study "Comparative analyses reveal rapid turnover and emergence of transitory 3D genome architectures in the fungal kingdom" (Laigle *et al.,* 2026) and their usage. It uses the SLURM scheduler and contains scripts needing variable changes if reused. Scripts have been named depending on the major steps, *e.g.,* "A" for collection of genomes or "B" for collection of Hi-C data, except for figures having their litteral names (*e.g.,* "Figure") and being placed in a specific folder here with their inputs when not too heavy (otherwise, access them in Zenodo). It is also precised when steps have been made in local (*e.g.,* figures). 
 
+execute:
+  eval: false
+format: 
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    colorlinks: true
+---
 
 <img width="800px" 
     src="heatmap_models.gif"
-    alt="Gif of 6 fungal species presenting different Hi-C contact maps along their 3D models.">
+    alt="Gif of 6 fungal species presenting different Hi-C contact maps along their 3D model.">
 
 Gif of 6 fungal species presenting different Hi-C contact maps along their 3D models (same species as Figure 1B).
+
 
 
 Zenodos linked to this work: 
@@ -99,14 +109,13 @@ Note: For this part, did the same with `zoopagomycota_species_assembly.txt` as i
     src="Bsubappendiculatus_10kb.gif"
     alt="3D structure of the Butyriboletus_subappendiculatus genome at 10 kb resolution">
 
-
 3D Genome Builder (3DGB) is a snakemake workflow developped by [Poisignon *et al.* (2022)](https://doi.org/10.1093/nargab/lqad104), treating Hi-C data (requires only FASTA and FASTQ.GZ files), controlling their quality and generating PDB file formats. The PDB can then be uploaded into different softwares to visualize the 3D models. In our case, we used [Mol* Viewer](https://molstar.org/viewer/) (Element Index option in Spacefill category for the colors, giving a gradient where the longest chromosome is red and the smallest blue).
+
 
 Example of 3D structure of the *Butyriboletus subappendiculatus* genome at 10 kb resolution.
 
 
 Note: the tree generation and the annotations have been done in the same time since 3DGB took some time to be set up and run on our cluster, espacially with this number of species.
-
 
 ## Prepare workdir 
 

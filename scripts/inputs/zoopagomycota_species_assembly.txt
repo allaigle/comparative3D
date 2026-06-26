@@ -1,0 +1,9 @@
+zoopago	Cmojavensis	GCA_025766245.1
+zoopago	Emuscae	GCA_014839935.2
+zoopago	Lpennispora	GCA_002104995.1
+zoopago	Crhysosporum	GCA_037055185.1
+zoopago	Mscoparia	GCA_027575805.1
+zoopago	Saspiralis	GCA_027478575.1
+zoopago	Branarum	GCA_040143965.1
+zoopago	Zculisetae	GCA_001969505.1
+zoopago	Cobscurus	GCA_030770535.1

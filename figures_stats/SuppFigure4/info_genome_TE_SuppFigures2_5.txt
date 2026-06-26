@@ -1,0 +1,56 @@
+Species	Phylum	Full_Species_Name	Model	GenomeSize_bp_wo500	GC_percent_wo500_QUAST	Chromosome_Number	Gene_cov_perc	TE_cov_perc	Cis_Interactions_perc	Trans_Interactions_perc	DNA	LINE	LTR	PLE	RC	Retroposon	SINE	Uncertain	Unknown
+Abisporus	Basidiomycota	Agaricus bisporus	Rabl-Bean	30321411	46.48	13	42.321	18.357	58.4	41.6	1.02	2.773	6.937	0.008	0.286	0	0.004	0.042	7.446
+Cbrunneum	Basidiomycota	Chlorophyllum brunneum	Chromosome Territories-Rabl	38856969	47.62	13	33.697	33.125	41.7	58.3	0.354	10.02	16.322	0.004	0.219	0	0.018	0.032	6.281
+Igrammopodia	Basidiomycota	Inocybe grammopodia	Rabl-Bean	47529353	46.28	14	25.722	43.531	50.3	49.7	8.828	1.624	15.877	0.008	1.796	0	0.003	0.026	15.561
+Itigrina	Basidiomycota	Inocybe tigrina	Rabl	41304737	47.14	14	31.942	27.928	56.3	43.7	3.238	0.874	7.751	0.009	1.132	0	0.009	0.028	15.145
+Ptriumphans	Basidiomycota	Phlegmacium triumphans	Chromosome Territories-Rabl	164984872	43.09	13	7.93	78.759	89.4	10.6	13.511	2.128	44.631	0.003	4.552	0	0.007	0.111	13.895
+Cmicaceus	Basidiomycota	Coprinellus micaceus	Rabl-Bean	50217556	53.75	13	36.12	12.852	77.8	22.2	0.765	1.366	2.779	0.006	0.492	0	0.004	0.083	7.485
+Arubescens	Basidiomycota	Amanita rubescens	Bean	34045353	47.36	12	35.278	28.526	87.6	12.4	3.459	0.855	9.893	0.006	0.734	0	0.039	0.038	13.738
+Vsurrecta	Basidiomycota	Volvariella surrecta	Chromosome Territories-Rabl	27853270	47.85	12	44.834	8.368	65.1	34.9	0.404	0.385	2.861	0.008	0.233	0	0.005	0.038	4.598
+Eclypeatum	Basidiomycota	Entoloma clypeatum	Chromosome Territories-Rabl	59700562	48.78	12	19.485	55.424	58.9	41.1	2.874	2.392	36.893	0.004	0.955	0	0.005	0.034	12.398
+Lsordida	Basidiomycota	Lepista sordida	Rabl	53223650	48.99	12	31.986	26.893	82.3	17.7	2.861	0.581	6.126	0.011	1.484	0	0.004	0.047	15.953
+Tcingulatum	Basidiomycota	Tricholoma cingulatum	Rabl-Bean	45057690	48.52	14	26.648	45.499	57.9	42.1	8.748	2.266	14.147	0.013	1.94	0	0.003	0.031	18.608
+Themisulphureum	Basidiomycota	Tricholoma hemisulphureum	Chromosome Territories-Rabl	128125011	47.14	12	10.015	74.072	44.6	55.4	8.6	2.665	34.617	0.011	2.328	0	0.091	0.052	25.897
+Aostoyae	Basidiomycota	Armillaria ostoyae	Rabl	54749967	48.42	11	35.516	19.004	45.7	54.3	0.538	0.291	6.054	0.005	0.497	0	0.036	0.016	11.763
+Fvelutipes	Basidiomycota	Flammulina velutipes	Rabl-Bean	37254497	49.71	12	43.486	18.215	40	60	1.791	0.305	4.81	0.008	0.516	0	0.01	0.036	10.964
+Mgalericulata	Basidiomycota	Mycena galericulata	Chromosome Territories-Rabl	99772317	51.68	13	24.007	34.453	92.7	7.3	4.45	3.069	10.013	0.132	1.248	0	0.036	0.083	15.588
+Pstipticus	Basidiomycota	Panellus stipticus	Rabl-Bean	38444143	53.24	13	39.154	22.073	82.4	17.6	2.541	0.766	7.001	0.011	0.629	0.002	0.005	0.063	11.276
+Postreatus	Basidiomycota	Pleurotus ostreatus	Rabl-Bean	40426685	51.27	12	36.51	25.813	42.1	57.9	3.13	0.271	12.055	0.176	0.68	0	0.006	0.05	9.632
+Girrigatus	Basidiomycota	Gliophorus irrigatus	Chromosome Territories-Rabl	27735519	49.69	16	34.572	34.973	55.6	44.4	7.61	1.106	8.403	0.015	1.504	0	0.002	0.022	16.761
+Pcalyptriformis	Basidiomycota	Porpolomopsis calyptriformis	Chromosome Territories-Rabl	33129630	47.52	14	29.434	46.159	53.3	46.7	3.137	0.349	24.551	0.008	0.852	0	0.002	0.062	17.521
+Hcoccinea	Basidiomycota	Hygrocybe coccinea	Rabl-Bean	65126115	46.36	13	19.747	56.098	64.1	35.9	11.653	2.463	15.554	0.288	4.517	0	0.001	0.06	22.076
+Hpunicea	Basidiomycota	Hygrocybe punicea	Chromosome Territories-Rabl	91261153	46.96	13	14.16	64.477	45.3	54.7	12.855	2.051	13.129	0.09	8.671	0	0.001	0.056	27.964
+Cfumosa	Basidiomycota	Clavaria fumosa	Rabl	48281665	50.43	13	20.993	55.241	59.3	40.7	3.249	1.524	32.68	0.757	1.788	0	0.002	0.124	15.499
+Rcorniculata	Basidiomycota	Ramariopsis corniculata	Rabl-Bean	46908291	47.28	14	33.289	28.883	66.2	33.8	2.9	0.815	6.989	0.007	22.552	0	0.01	0.031	16.296
+Agentilis	Basidiomycota	Aureoboletus gentilis	Bean	40958937	48.3	11	25.836	44.875	40.9	59.1	4.677	1.059	26.204	0.006	1.156	0	0.007	0.028	11.881
+Bsubappendiculatus	Basidiomycota	Butyriboletus subappendiculatus	Bean	31639639	49.52	13	34.252	31.114	84.6	15.4	3.442	1.192	12.447	0.01	0.621	0	0.001	0.033	13.531
+Lsulphureus	Basidiomycota	Laetiporus sulphureus	Rabl-Bean	37410216	51.69	14	37.465	18.653	43.2	56.8	1.404	0.78	6.764	0.094	0.487	0	0.013	0.036	9.404
+Sminoensis	Basidiomycota	Sparassis minoensis	Bean	36819025	53.3	12	34.82	26.049	86.3	13.7	0.435	1.213	16.345	0.01	0.385	0	0.005	0.044	7.877
+Gresinaceum	Basidiomycota	Ganoderma resinaceum	Rabl-Bean	41015703	55.59	13	38.569	13.116	34.3	65.7	0.403	0.397	3.975	0.007	0.837	0	0.004	0.048	7.686
+Hcoralloides	Basidiomycota	Hericium coralloides	Bean	39939687	53.87	12	32.975	25.784	89.3	10.7	1.288	0.802	9.166	0.008	0.675	0	0.01	0.07	13.956
+Lblennius	Basidiomycota	Lactarius blennius	Rabl-Bean	68853849	50.89	11	13.611	62.661	70.9	29.1	4.543	1.835	27.645	0.003	0.46	0	0.003	0.049	28.204
+Ltabidus	Basidiomycota	Lactarius tabidus	Rabl	52304285	50.45	11	18.048	49.485	56.9	43.1	4.708	1.811	17.676	0.005	1.088	0	0.003	0.062	24.215
+Levosmus	Basidiomycota	Lactarius evosmus	Bean	57199435	50.74	11	14.835	59.666	62.3	37.7	2.6	1.735	38.565	0.005	0.498	0	0.002	0.034	16.293
+Rdelica	Basidiomycota	Russula delica	Bean	46292235	52.9	11	20.133	48.04	84.2	15.8	5.206	2.259	16.146	0.025	0.361	0	0.014	0.045	24.079
+Rfaginea	Basidiomycota	Russula faginea	Rabl-Bean	41612693	50.05	11	21.824	45.14	33.1	66.9	5.516	1.255	13.251	0.011	1.105	0	0.017	0.03	24.132
+Rolivacea	Basidiomycota	Russula olivacea	Bean	38334703	50.25	11	23.759	40.299	42.6	57.4	4.329	0.775	9.02	0.016	0.888	0	0.01	0.039	25.357
+Rnigricans	Basidiomycota	Russula nigricans	Bean	45011098	50.97	11	18.682	51.648	62.1	37.9	1.899	1.259	30.434	0.014	0.249	0	0.009	0.03	17.848
+Rfarinipes	Basidiomycota	Russula aff farinipes	Bean	38985979	51.89	11	21.882	48.448	54.7	45.3	1.749	0.925	26.905	0.009	0.545	0	0.004	0.027	18.432
+Rvesca	Basidiomycota	Russula vesca	Rabl-Bean	55098841	49.98	11	16.806	52.368	79.5	20.5	5.98	4.392	17.303	0.063	0.395	0	0.002	0.029	24.319
+Palboapiculata	Basidiomycota	Phaeoclavulina alboapiculata	Rabl-Bean	49413841	48.23	14	29.577	29.68	52.3	47.7	2.626	1.059	13.688	0.005	1.104	0	0.027	0.048	11.237
+Tpullulans	Basidiomycota	Tausonia pullulans	Chromosome Territories-Rabl	23340260	58.46	20	56.138	8.613	85.4	14.6	0.111	2.617	2.831	0.001	0.096	0	0.133	0.185	2.688
+Aperuvianus	Ascomycota	Arachnomyces peruvianus	Rabl-Bean	34537690	46.27	7	47.584	7.243	49.3	50.7	1.036	0.351	3.866	0	0.062	0	0.006	0.126	1.846
+Cnorvegica	Ascomycota	Cladonia norvegica	Chromosome Territories-Rabl	32251759	46.9	20	47.409	9.027	42.2	57.8	1.252	0.07	3.865	0	0.08	0	0.004	0.108	3.711
+Pglauca	Ascomycota	Platismatia glauca	Rabl	33190042	50.9	21	45.409	5.554	70.1	29.9	0.459	0.631	1.215	0.001	0.297	0	0.005	0.109	2.955
+Fmarina	Ascomycota	Flavoplaca marina	Rabl-Bean	35575737	43.37	18	38.428	26.408	42	58	1.157	0.168	14.05	0	1.845	0	0.001	0.058	9.168
+Udeusta	Ascomycota	Umbilicaria deusta	Chromosome Territories-Rabl	38863283	47.47	24	33.027	33.961	57.7	42.3	3.373	3.429	18.988	0.411	1.892	0	0.006	0.199	5.721
+Elanata	Ascomycota	Ephebe lanata	Chromosome Territories-Rabl	31520625	48.43	7	29.372	41.537	85.8	14.2	5.126	0.978	27.318	0.002	0.145	0	0	0.276	7.812
+Lpygmaea	Ascomycota	Lichina pygmaea	Chromosome Territories-Rabl	32421062	53.61	7	29.981	35.011	73.1	26.9	1.16	10.976	19.381	0.002	0.039	0	0.002	0.264	3.205
+Cfumosorosea	Ascomycota	Cordyceps fumosorosea	Rabl	34324099	53.49	9	41.482	7.314	26.9	73.1	0.241	1.946	2.998	0	0.063	0.167	0	0.116	1.826
+Slamellicola	Ascomycota	Simplicillium lamellicola	Rabl	28706920	48.42	7	52.994	1.444	55	45	0.076	0.309	0.162	0	0.052	0.003	0	0.042	0.835
+Lflavum	Ascomycota	Leptographium flavum	Rabl-Bean	23957028	59.92	7	44.462	8.511	39.2	60.8	1.055	2.328	1.748	0.004	0.085	0.001	0.001	0.295	3.017
+Llubrica	Ascomycota	Leotia lubrica	Bean-Chromosome Territories	86064447	47.58	14	15.685	62.952	70.1	29.9	16.584	5.275	27.414	0.001	2.874	0	0.001	0.054	10.782
+Rkalkhoffii	Ascomycota	Rhizosphaera kalkhoffii	Chromosome Territories	24808958	50.49	14	49.086	3.887	79.3	20.7	0.237	1.453	0.294	0.007	0.089	0.003	0.026	0.277	1.559
+Mzobellii	Ascomycota	Metschnikowia zobellii	Rabl	13602261	47.78	5	51.733	2.418	44.6	55.4	0.144	0.796	0.211	0.001	0.129	0	0.036	0.093	1.049
+Eparvispora	Mucoromycota	Entomortierella parvispora	Rabl	38486553	49.43	14	49.006	11.083	38	62	1.216	0.882	3.858	0.008	0.197	0.016	0.013	0.405	4.518
+Rirregularis	Mucoromycota	Rhizophagus irregularis	Chromosome Territories-Rabl	146773001	27.84	32	13.225	46.244	62.6	37.4	9.797	4.212	2.783	0	0.654	0	0.001	0.315	28.485

@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+# Goal: Plot the Figure 3 and get stats - phylogenetic regressions
+
 # Author: Alice Laigle
 # Adapted from Camille Cornet's script
 
@@ -23,7 +25,7 @@ collectionPATH <- paste0(basePATH,"0_data/0_collection/")
 ## path to ultrametric tree
 treePATH <- paste0(basePATH,"1_dataTreatment/5_phyloTree/5_tree/")
 ## plot output path
-plotPATH <- paste0(basePATH,"5_final_results/Figure3_correlations/")
+plotPATH <- paste0(basePATH,"5_final_results/Figure3_associations/")
 
 ################################################################################
 
@@ -78,7 +80,7 @@ df_info_genome$ShapeType <- ifelse(df_info_genome$ColorCode %in% color_codes_to_
 # run model
 pagel <- corPagel(1, phy = phylo_tree, fixed = FALSE, form = ~Species)
 model_gsize_TE <- gls(GenomeSize_bp_wo500 ~ TE_cov_perc,
-                      data = df_info_genome, correlation = pagel)
+                      data = df_info_genome, association = pagel)
 summary(model_gsize_TE)
 
 # extract values
@@ -128,14 +130,14 @@ plot_1 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
   
 plot_1
 
-# Very strong correlation between the genome size and the TE content
+# Very strong association between the genome size and the TE content
 
 ################################################################################
 
 ## 2. Is the ratio of cis/trans correlated with TE content ?
 
 model_ratio_TEcov <- gls(Ratio ~ TE_cov_perc,
-                         data = df_info_genome, correlation = pagel)
+                         data = df_info_genome, association = pagel)
 summary(model_ratio_TEcov)
 
 # extract values
@@ -164,7 +166,7 @@ plot_2 <- ggplot(data = df_info_genome, aes(x = Ratio,
            label = paste0("BIC = ",round(bic_value_ratio_TEcov, 2)), 
            hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_2
-# No correlation between the ratio cis/trans and TE content
+# No association between the ratio cis/trans and TE content
 
 ################################################################################
 #### Phylogenetic ANOVAs
@@ -196,7 +198,7 @@ plot_3 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
   scale_y_discrete(limits=rev) 
 plot_3
 
-# No correlation between genome size and 3D models
+# No association between genome size and 3D models
 
 ################################################################################
 
@@ -225,7 +227,7 @@ plot_4 <- ggplot(data = df_info_genome, aes(x = TE_cov_perc,
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black") 
 plot_4
 
-# No correlation between TE content and 3D model 
+# No association between TE content and 3D model 
 
 ################################################################################
 
@@ -234,5 +236,5 @@ nested <- (plot_1 | plot_2)/(plot_3|plot_4) +
 nested
 
 ggsave(nested, 
-       file=paste0(plotPATH,"Figure3_correlations.pdf"), 
+       file=paste0(plotPATH,"Figure3_associations.pdf"), 
        width = 25, height = 15, units = "cm")

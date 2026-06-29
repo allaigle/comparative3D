@@ -1,4 +1,4 @@
-#!/bin/R
+#!/usr/bin/env Rscript
 
 # Goal: Plot the Supplemental Figure 4 - phylogenetic regressions and ANOVAs
 
@@ -89,19 +89,25 @@ df_interactions$ShapeType <- ifelse(df_interactions$ColorCode %in% color_codes_t
 pagel <- corPagel(1, phy = phylo_tree, fixed = FALSE, form = ~Species)
 
 # create function to run model and extract p-value, AIC and BIC
-extract_model_stats <- function(data, response, predictor, correlation_structure) {
+extract_model_stats <- function(data, response, predictor, association_structure) {
   formula <- as.formula(paste(response, "~", predictor)) # 
-  model <- gls(formula, data = data, correlation = correlation_structure) # run model
+  model <- gls(formula, data = data, correlation = association_structure) # run model
   
   p_value <- summary(model)$tTable[2, "p-value"] # extract p-value
   
   model_aic <- AIC(model) # extract AIC
   model_bic <- BIC(model) # extract BIC
+  t_value <- summary(model)$tTable[2, "t-value"]
+  dfreedom <- summary(model)$dims[1]
+  coef <- summary(model)$tTable[2, "Value"]
   
   results <- list( # Create a list to return results
     p_value = p_value,
     aic = model_aic,
-    bic = model_bic
+    bic = model_bic,
+    t_value =  t_value,
+    dfreedom = dfreedom,
+    coef = coef
   )
   return(results)
 }
@@ -116,6 +122,10 @@ res_QC[[1]] # check p-value to adapt the number of numbers rounded - 0.3644896
 pval_QC <- round(res_QC[[1]], 3)
 res_QC[[2]] # AIC
 res_QC[[3]] # BIC 
+res_QC[[4]] # t-val
+round(res_QC[[4]], 2) # t-val - rounded
+res_QC[[5]] # degree of freedom
+res_QC[[6]] # coef
 
 df_interactions$GenomeSize_Mbp <- (df_interactions$GenomeSize_bp_wo500)/1000000
 df_interactions$total_interactions_M <- (df_interactions$total_interactions)/1000000
@@ -138,7 +148,7 @@ plot_0 <- ggplot(data = df_interactions, aes(x = GenomeSize_Mbp,
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_0
 
-# No correlation between the genome size and the number of interactions
+# No association between the genome size and the number of interactions
 
 ################################################################################
 
@@ -150,6 +160,10 @@ res_gs_nb[[1]] # 0.03024583
 pval_gs_nb <- round(res_gs_nb[[1]], 4)
 res_gs_nb[[2]] # AIC
 res_gs_nb[[3]] # BIC 
+res_gs_nb[[4]] # t-val 
+round(res_gs_nb[[4]], 2) # t-val - rounded
+res_gs_nb[[5]] # dfreedom
+res_gs_nb[[6]] # coef
 
 df_info_genome$GenomeSize_Mbp <- (df_info_genome$GenomeSize_bp_wo500)/1000000
 
@@ -169,18 +183,23 @@ plot_1 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_1
 
-# Correlation between the genome size and the chromosome number
+# Positive association between the genome size and the chromosome number
 
 ################################################################################
 
-## 2. Is the genome size correlated to the gene coverage ?
+## 2. Is the genome size correlated to the gene content ?
 
-res_gs_gcov <- extract_model_stats(df_info_genome, "GenomeSize_bp_wo500", 
+res_gs_gcont <- extract_model_stats(df_info_genome, "GenomeSize_bp_wo500", 
                                  "Gene_cov_perc", pagel)
-res_gs_gcov[[1]] # 1.928756e-13
-pval_gs_gcov <- round(res_gs_gcov[[1]], 14)
-res_gs_gcov[[2]] # AIC
-res_gs_gcov[[3]] # BIC 
+res_gs_gcont[[1]] # 1.928756e-13
+pval_gs_gcont <- round(res_gs_gcont[[1]], 14)
+pval_gs_gcont
+res_gs_gcont[[2]] # AIC
+res_gs_gcont[[3]] # BIC 
+res_gs_gcont[[4]] # t-val 
+round(res_gs_gcont[[4]], 2) # t-val - rounded
+res_gs_gcont[[5]] # dfreedom
+res_gs_gcont[[6]] # coef
 
 plot_2 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp, 
                                             y = Gene_cov_perc,
@@ -196,11 +215,11 @@ plot_2 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
   labs(x = "Genome size (Mbp)", y = "Gene content (%)", color = "3D model",
        tag = "C") + 
   annotate(geom="text", x = Inf, y = Inf,
-           label=sprintf("italic('p')~'%s'",pval_gs_gcov),
+           label=sprintf("italic('p')~'%s'",pval_gs_gcont),
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_2
 
-# Very strong correlation between the genome size and the gene coverage
+# Very strong negative association between the genome size and the gene content
 
 ################################################################################
 
@@ -213,6 +232,12 @@ pval_gs_gc <- round(res_gs_gc[[1]], 7)
 pval_gs_gc
 res_gs_gc[[2]] # AIC
 res_gs_gc[[3]] # BIC 
+res_gs_gc[[4]] # t-val 
+round(res_gs_gc[[4]], 2) # t-val - rounded
+res_gs_gc[[5]] # dfreedom
+res_gs_gc[[6]] # coef
+
+
 plot_3 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp, 
                                             y = GC_percent_wo500_QUAST,
                                             colour = Model)) +  
@@ -232,10 +257,10 @@ plot_3 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_3
 
-# Strong correlation between the genome size and the GC content
+# Strong negative association between the genome size and the GC content
 
 ################################################################################
-## 4. Is the CG content correlated with TE coverage ?
+## 4. Is the CG content correlated with TE content ?
 
 res_te_gc <- extract_model_stats(df_info_genome, "TE_cov_perc", 
                                    "GC_percent_wo500_QUAST", pagel)
@@ -244,6 +269,11 @@ pval_te_gc <- round(res_te_gc[[1]], 4)
 pval_te_gc
 res_te_gc[[2]] # AIC
 res_te_gc[[3]] # BIC 
+res_te_gc[[4]] # t-val 
+round(res_te_gc[[4]], 2) # t-val - rounded
+res_te_gc[[5]] # dfreedom
+res_te_gc[[6]] # coef
+
 
 plot_4 <- ggplot(data = df_info_genome, aes(x = TE_cov_perc, 
                                             y = GC_percent_wo500_QUAST,
@@ -261,7 +291,7 @@ plot_4 <- ggplot(data = df_info_genome, aes(x = TE_cov_perc,
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_4
 
-# Strong correlation between the GC content and TE coverage
+# Strong negative association between the GC content and TE content
 
 ################################################################################
 
@@ -276,6 +306,10 @@ pval_gs_LTR <- round(res_gs_LTR[[1]], 7)
 pval_gs_LTR
 res_gs_LTR[[2]] # AIC
 res_gs_LTR[[3]] # BIC 
+res_gs_LTR[[4]] # t-val 
+round(res_gs_LTR[[4]], 2) # t-val - rounded
+res_gs_LTR[[5]] # dfreedom
+res_gs_LTR[[6]] # coef
 
 plot_5 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp, 
                                             y = LTR,
@@ -294,7 +328,7 @@ plot_5 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
            label=sprintf("italic('p')~'%s'",pval_gs_LTR),
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_5
-# Very strong correlation between the genome size and the LTR category
+# Very strong positive association between the genome size and the LTR category
 
 ### DNA ########################################################################
 
@@ -305,6 +339,10 @@ pval_gs_DNA <- round(res_gs_DNA[[1]], 11)
 pval_gs_DNA
 res_gs_DNA[[2]] # AIC
 res_gs_DNA[[3]] # BIC 
+res_gs_DNA[[4]] # t-val 
+round(res_gs_DNA[[4]], 2) # t-val - rounded
+res_gs_DNA[[5]] # dfreedom
+res_gs_DNA[[6]] # coef
 
 plot_6 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp, 
                                             y = DNA,
@@ -323,7 +361,7 @@ plot_6 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
            label=sprintf("italic('p')~'%s'",pval_gs_DNA),
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_6
-# Very strong correlation between the genome size and the DNA category
+# Very strong positive association between the genome size and the DNA category
 
 ### LINE ########################################################################
 res_gs_LINE <- extract_model_stats(df_info_genome, "GenomeSize_bp_wo500", 
@@ -333,6 +371,10 @@ pval_gs_LINE <- round(res_gs_LINE[[1]], 3)
 pval_gs_LINE
 res_gs_LINE[[2]] # AIC
 res_gs_LINE[[3]] # BIC 
+res_gs_LINE[[4]] # t-val 
+round(res_gs_LINE[[4]], 2) # t-val - rounded
+res_gs_LINE[[5]] # dfreedom
+res_gs_LINE[[6]] # coef
 
 plot_7 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp, 
                                             y = LINE,
@@ -352,7 +394,7 @@ plot_7 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_7
 
-# No correlation between the genome size and LINE
+# No association between the genome size and LINE
 
 
 ### PLE ########################################################################
@@ -363,6 +405,10 @@ pval_gs_PLE <- round(res_gs_PLE[[1]], 3)
 pval_gs_PLE
 res_gs_PLE[[2]] # AIC
 res_gs_PLE[[3]] # BIC 
+res_gs_PLE[[4]] # t-val 
+round(res_gs_PLE[[4]], 2) # t-val - rounded
+res_gs_PLE[[5]] # dfreedom
+res_gs_PLE[[6]] # coef
 
 plot_8 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp, 
                                             y = PLE,
@@ -381,7 +427,7 @@ plot_8 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
            label=sprintf("italic('p')~'%s'",pval_gs_PLE),
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_8
-# No correlation between the genome size and PLE
+# No association between the genome size and PLE
 
 
 ### RC #########################################################################
@@ -392,6 +438,10 @@ pval_gs_RC <- round(res_gs_RC[[1]], 3)
 pval_gs_RC
 res_gs_RC[[2]] # AIC
 res_gs_RC[[3]] # BIC 
+res_gs_RC[[4]] # t-val 
+round(res_gs_RC[[4]], 2) # t-val - rounded
+res_gs_RC[[5]] # dfreedom
+res_gs_RC[[6]] # coef
 
 
 plot_9 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp, 
@@ -409,7 +459,7 @@ plot_9 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
            label=sprintf("italic('p')~'%s'",pval_gs_RC),
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_9
-# No correlation between the genome size and RC
+# No association between the genome size and RC
 
 
 ### SINE #######################################################################
@@ -419,7 +469,11 @@ res_gs_SINE[[1]] # 6.253369e-06
 pval_gs_SINE <- round(res_gs_SINE[[1]], 8)
 pval_gs_SINE
 res_gs_SINE[[2]] # AIC
-res_gs_SINE[[3]] # BIC 
+res_gs_SINE[[3]] # BIC
+res_gs_SINE[[4]] # t-val 
+round(res_gs_SINE[[4]], 2) # t-val - rounded
+res_gs_SINE[[5]] # dfreedom
+res_gs_SINE[[6]] # coef
 
 plot_10 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp, 
                                             y = SINE,
@@ -441,6 +495,8 @@ min(df_info_genome$SINE)
 max(df_info_genome$SINE)
 median(df_info_genome$SINE)
 
+# Very strong positive association between the genome size and SINE content
+
 ################################################################################
 
 # 11. Is the genome size correlated to the ratio cis/trans?
@@ -451,6 +507,10 @@ pval_gs_ratio <- round(res_gs_ratio[[1]], 4)
 pval_gs_ratio
 res_gs_ratio[[2]] # AIC
 res_gs_ratio[[3]] # BIC 
+res_gs_ratio[[4]] # t-val 
+round(res_gs_ratio[[4]], 2) # t-val - rounded
+res_gs_ratio[[5]] # dfreedom
+res_gs_ratio[[6]] # coef
 
 plot_11 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp, 
                                              y = Ratio,
@@ -467,6 +527,8 @@ plot_11 <- ggplot(data = df_info_genome, aes(x = GenomeSize_Mbp,
            label=sprintf("italic('p')~'%s'",pval_gs_ratio),
            parse=TRUE, hjust = 1.1, vjust = 1.5, size = 4, color = "black")
 plot_11
+
+# Positive association between the genome size and the ratio cis/trans
 
 ################################################################################
 

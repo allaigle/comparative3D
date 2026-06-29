@@ -89,8 +89,8 @@ aic_value_size_TE <- AIC(model_gsize_TE) # get AIC
 aic_value_size_TE
 bic_value_size_TE <- BIC(model_gsize_TE) # get  BIC
 bic_value_size_TE
-
-summary(model_gsize_TE)$tTable[2, "Value"] # get coef
+summary(model_gsize_TE)$tTable[2, "t-value"] # t-value = 7.786286
+round(summary(model_gsize_TE)$tTable[2, "t-value"], 2) # rounded t-value
 
 # Get genome size into Mbp instead of bp
 df_info_genome$GenomeSize_Mbp <- (df_info_genome$GenomeSize_bp_wo500)/1000000
@@ -145,8 +145,9 @@ p_value_ratio_TEcov <- summary(model_ratio_TEcov)$tTable[2, "p-value"]
 p_value_ratio_TEcov <- round(p_value_ratio_TEcov, 2) # checked manually
 aic_value_ratio_TEcov <- AIC(model_ratio_TEcov) # get AIC
 bic_value_ratio_TEcov <- BIC(model_ratio_TEcov) # get  BIC
-summary(model_gsize_TE)$tTable[2, "Value"] # get  coef
-
+summary(model_ratio_TEcov)$tTable[2, "Value"] # get  coef
+summary(model_ratio_TEcov)$tTable[2, "t-value"] # t-value = 7.786286
+round(summary(model_ratio_TEcov)$tTable[2, "t-value"], 2) # rounded t-value
 
 plot_2 <- ggplot(data = df_info_genome, aes(x = Ratio, 
                                               y = TE_cov_perc, 
